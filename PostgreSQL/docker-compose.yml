@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: 12345
     volumes:
-      - ../RootFS/database/postgres/data:/var/lib/postgresql/data
+      - ./RootFS/database/postgres/data:/var/lib/postgresql/data
   
   pgadmin:
     container_name: dev-pgadmin4
@@ -21,4 +21,4 @@ services:
       PGADMIN_DEFAULT_EMAIL: root@test.org
       PGADMIN_DEFAULT_PASSWORD: 12345
     volumes:
-      - ../RootFS/database/pgadmin/:/var/lib/pgadmin
+      - ./RootFS/database/pgadmin/:/var/lib/pgadmin
