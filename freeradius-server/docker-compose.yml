@@ -13,6 +13,7 @@ services:
       - ./RootFS/config/users:/etc/raddb/users
       - ./RootFS/config/radiusd.conf:/etc/raddb/radiusd.conf
     restart: unless-stopped
+    command: freeradius -X
     networks:
       - radius-net
 
