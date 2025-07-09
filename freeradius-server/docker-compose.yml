@@ -8,8 +8,11 @@ services:
       - "1812:1812/udp"
       - "1813:1813/udp"
     volumes:
+      - ./RootFS/debug:/var/debug
       - ./RootFS/config/clients.conf:/etc/raddb/clients.conf
       - ./RootFS/config/users:/etc/raddb/users
-    command: freeradius -X
+      - ./RootFS/config/radiusd.conf:/etc/raddb/radiusd.conf
+    command: freeradius -f 
+#    command: freeradius -f -xx
     restart: unless-stopped
 

@@ -86,9 +86,8 @@
 #
 #bob	Cleartext-Password := "hello"
 #	Reply-Message := "Hello, %{User-Name}"
-#
 
-#
+G#
 # This is an entry for a user with a space in their name.
 # Note the double quotes surrounding the name.  If you have
 # users with spaces in their names, you must also change
@@ -203,5 +202,9 @@ DEFAULT	Hint == "SLIP"
 # You should add test accounts to the TOP of this file! #
 # See the example user "bob" above.                     #
 #########################################################
+
+test123 Cleartext-Password := "pass123"
+        Reply-Message := "Welcome, %{User-Name}"
+        
 testuser Cleartext-Password := "password123"
 
