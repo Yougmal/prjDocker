@@ -12,7 +12,13 @@ services:
       - ./RootFS/config/clients.conf:/etc/raddb/clients.conf
       - ./RootFS/config/users:/etc/raddb/users
       - ./RootFS/config/radiusd.conf:/etc/raddb/radiusd.conf
-    command: freeradius -f 
-#    command: freeradius -f -xx
     restart: unless-stopped
+    networks:
+      - radius-net
 
+networks:
+  radius-net:
+    driver: bridge
+    ipam:
+        config:
+            - subnet: 192.168.200.0/24
