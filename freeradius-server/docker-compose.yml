@@ -1,0 +1,15 @@
+services:
+  freeradius:
+    container_name: freeradius
+    build:
+      context: ./
+      dockerfile: freeradius.Dockerfile
+    ports:
+      - "1812:1812/udp"
+      - "1813:1813/udp"
+    volumes:
+      - ./RootFS/config/clients.conf:/etc/raddb/clients.conf
+      - ./RootFS/config/users:/etc/raddb/users
+    command: freeradius -X
+    restart: unless-stopped
+
